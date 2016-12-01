@@ -2,7 +2,7 @@
 * @Author: guanghang.Wang
 * @Date:   2016-11-29 14:59:49
 * @Last Modified by:   guanghang.Wang
-* @Last Modified time: 2016-11-29 22:20:47
+* @Last Modified time: 2016-12-01 13:46:20
 */
 
 'use strict';
@@ -29,13 +29,20 @@ app.use('/', express.static('uploads'));
 var index=require('./controllers/index');
 //加载navbar模块控制器
 var navbar =require('./controllers/navbar');
-
+//加载teacher木块控制器
+var teacher =require('./controllers/teacher');
+//加载登陆模块控制器
+var login =require('./controllers/login');
 
 
 //挂载
 app.use('/', index);
 //挂载：就是路径拼接
 app.use('/', navbar);
+//挂载
+app.use('/', teacher);
+//挂载
+app.use('/', login);
 
 
 

@@ -1,4 +1,4 @@
-{{extend ('../layout/base.xtpl')}}
+{{extend ('../layout/main')}}
 
 {{#block ('content')}}
 <!-- 讲师资料 -->

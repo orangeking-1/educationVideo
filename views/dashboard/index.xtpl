@@ -1,4 +1,4 @@
-{{extend ('../layout/base.xtpl')}}
+{{extend ('../layout/main')}}
 
 {{#block ('content')}}
 <!-- 个人资料 -->
@@ -39,6 +39,4 @@
 			</div>
 		</div>
 	</div>
-
-
 {{/block}}
