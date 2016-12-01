@@ -19,6 +19,22 @@
 	{{{block ('template')}}}
 
 
+<script type="text/javascript" src="/libs/sea.js"></script>
+
+{{{block ('script')}}}
+
+<script type="text/javascript">
+	//配置一下路径
+	seajs.config({
+		base: '/assets',
+		alias: {
+			jquery: 'jquery/jquery.js'
+		}
+	})
+
+	seajs.use('/script/common');
 	
+</script>	
+
 </body>
 </html>

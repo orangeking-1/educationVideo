@@ -1,0 +1,35 @@
+/*
+* @Author: guanghang.Wang
+* @Date:   2016-12-01 16:16:49
+* @Last Modified by:   guanghang.Wang
+* @Last Modified time: 2016-12-01 17:19:16
+*/
+
+'use strict';
+
+
+define(function (require, exports, module){
+	var $=require('jquery');
+
+	$('#formTeacher').on('submit', function(){
+		//接受表单数据
+		var formData = $(this).serialize();
+		//发送ajax请求
+		$.ajax({
+			url: '/teacher/add',
+			type: 'post',
+			data: formData,
+			success: function (data){
+
+			}
+
+		})
+
+
+		return false;
+	})
+
+
+
+
+})
