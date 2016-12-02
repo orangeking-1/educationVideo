@@ -9,7 +9,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.15.2",
     "express": "^4.14.0",
+    "mysql": "^2.12.0",
     "xtemplate": "^4.6.0",
     "xtpl": "^3.3.0"
   }

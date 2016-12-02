@@ -2,7 +2,7 @@
 * @Author: guanghang.Wang
 * @Date:   2016-12-01 16:16:49
 * @Last Modified by:   guanghang.Wang
-* @Last Modified time: 2016-12-01 17:19:16
+* @Last Modified time: 2016-12-01 22:44:18
 */
 
 'use strict';
@@ -20,10 +20,18 @@ define(function (require, exports, module){
 			type: 'post',
 			data: formData,
 			success: function (data){
+				alert(data.msg)
 
+				if(data.code == '1000'){
+					//页面刷新
+					location.reload();
+				}
 			}
 
 		})
+
+
+		
 
 
 		return false;

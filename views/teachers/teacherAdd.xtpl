@@ -12,7 +12,7 @@
 						<div class="form-group">
 							<label for="" class="col-md-3 control-label">姓名</label>
 							<div class="col-md-4">
-								<input type="text" class="form-control input-sm" name="ct_name" placeholder="讲师名称">
+								<input type="text" class="form-control input-sm" name="tc_name" placeholder="讲师名称">
 							</div>
 						</div>
 						<div class="form-group">

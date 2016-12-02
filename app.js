@@ -2,13 +2,16 @@
 * @Author: guanghang.Wang
 * @Date:   2016-11-29 14:59:49
 * @Last Modified by:   guanghang.Wang
-* @Last Modified time: 2016-12-01 13:46:20
+* @Last Modified time: 2016-12-01 20:02:39
 */
 
 'use strict';
 
 
 var express= require('express');
+
+//引入一个中间件body-parser
+var bodyParser= require('body-parser');
 
 
 
@@ -19,6 +22,11 @@ var app=express();
 app.set('views', __dirname+'/views');
 //指定使用xtpl模板引擎
 app.set('view engine', 'xtpl');
+
+//使用body-parser中间件，解析请求头部
+// 解析头部 application/x-www-form-urlencoded 
+app.use(bodyParser.urlencoded({ extended: false }));
+
 
 //设置静态目录(资源)
 app.use('/', express.static('public'));
