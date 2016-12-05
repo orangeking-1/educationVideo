@@ -8,31 +8,36 @@
 					<li class="active">讲师添加</li>
 				</ol>
 				<div class="teacher-add">
-					<form class="form-horizontal col-md-offset-2 formTeacher">
+					<form id="changeFormTeacher" class="form-horizontal col-md-offset-2 ">
 						<div class="form-group">
 							<label for="" class="col-md-3 control-label">姓名</label>
 							<div class="col-md-4">
-								<input type="text" class="form-control input-sm" name="tc_name" placeholder="讲师名称">
+								<!-- 表单附加id值传过去，不让其显示 -->
+								<input type="password" style='display:none;' name="tc_id" value="{{person.tc_id}}">
+								<input type="text" class="form-control input-sm" name="tc_name" placeholder="讲师名称" value="{{person.tc_name}}">
 							</div>
 						</div>
 						<div class="form-group">
 							<label for="" class="col-md-3 control-label">密码</label>
 							<div class="col-md-4">
-								<input type="password" class="form-control input-sm " name="tc_pass">
+								<input type="password" class="form-control input-sm " name="tc_pass" value="{{person.tc_pass}}">
+								
 							</div>
 						</div>
 						<div class="form-group">
 							<label for="" class="col-md-3 control-label">入职时间</label>
 							<div class="col-md-4">
-								<input type="text" class="form-control input-sm" name="tc_join_time">
+								<input type="text" class="form-control input-sm" name="tc_join_time" value="{{person.tc_join_time}}">
 							</div>
 						</div>
 						<div class="form-group">
 							<label for="" class="col-md-3 control-label">类型</label>
 							<div class="col-md-2">
 								<select name="tc_type" class="form-control input-sm">
-									<option value="1">讲师</option>
-									<option value="0">管理员</option>
+								
+									<option value="1" {{#if (person.tc_type === 1)}}selected {{/if}}>讲师</option>
+									
+									<option value="0" {{#if (person.tc_type === 0)}}selected {{/if}}>管理员</option>
 								</select>
 							</div>
 						</div>
@@ -49,7 +54,7 @@
 						</div>
 						<div class="form-group">
 							<div class="col-md-7">
-								<input type="submit" class="btn btn-success btn-sm pull-right" value="添加">
+								<input type="submit" class="btn btn-success btn-sm pull-right" value="保 存">
 							</div>							
 						</div>
 					</form>
@@ -59,7 +64,7 @@
 
 {{#block ('script')}}
 	<script type="text/javascript">
-		seajs.use('/script/teacher/add')
+		seajs.use('/script/teacher/rechange');
 	</script>
 {{/block}}
 

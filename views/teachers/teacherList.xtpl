@@ -22,7 +22,7 @@
 							</div>
 						</form>
 					</div>
-					<table class="table table-striped table-bordered table-hover">
+					<table class="table table-striped table-bordered table-hover" id="teacherLists">
 						<thead>
 							<tr>
 								<th>编号</th>
@@ -35,23 +35,130 @@
 							</tr>
 						</thead>
 						<tbody>
+						{{#each (teacher)}}
 							<tr>
-								<td>1</td>
-								<td>赵玉川</td>
-								<td>布头儿</td>
-								<td>28</td>
+								<td id="index" data-indexs='{{this.tc_id}}'>{{xindex}}</td>
+								<td>{{this.tc_name}}</td>
+								<td>{{this.tc_roster}}</td>
+								<td>{{this.tc_age}}</td>
 								<td>男</td>
-								<td>15901256171</td>
+								<td>{{this.tc_cellphone}}</td>
 								<td>
-									<a href="#teacherModal" data-toggle="modal" class="btn btn-info btn-xs">查 看</a>
-									<a href="./teacher_add.html" class="btn btn-info btn-xs">编 辑</a>
+									<a href="javascript:;" data-toggle="modal" id="checkout" class="btn btn-info btn-xs preview">查 看</a>
+									<a href="/teacher/edit/{{this.tc_id}}" class="btn btn-info btn-xs">编 辑</a>
 									<a href="javascript::" class="btn btn-warning btn-xs">注 销</a>
 								</td>
 							</tr>
+						{{/each}}	
 						</tbody>
 					</table>
 				</div>
 			</div>
 {{/block}}		
-	
+
+
+
+{{#block ('template')}}
+	<!-- 模态框 添加课程 -->
+	<div class="modal fade" id="teacherModal">
+		<div class="modal-dialog" style="width: 750px;">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="panel-title">讲师信息</h4>
+				</div>
+				<div class="panel-body">
+					<table id="onePersonOne" class="table table-bordered table-condensed">
+						<!-- <tbody>
+							<tr>
+								<th>姓名:</th><td>{{onePerson[0].tc_id}}</td>
+								<th>职位:</th><td colspan="3">讲师</td>
+								<td rowspan="4" width="128">
+									<div class="avatar">
+										<img src="./images/default.png" alt="">
+									</div>
+								</td>
+							</tr> -->
+							<!-- <tr>
+								<th>花名:</th><td>{{onePerson.tc_roster}}</td>
+								<th>出生日期:</th><td colspan="3">{{onePerson.tc_brithday}}</td>
+							</tr>
+							<tr>
+								<th>性别:</th><td>{{onePerson.gender}}</td>
+								<th>出生日期:</th><td colspan="3">{{onePerson.tc_brithday}}</td>
+							</tr>
+							<tr>
+								<th>手机号码:</th><td colspan="2">{{onePerson.tc_cellphone}}</td>
+								<th>邮箱:</th><td colspan="2">{{onePerson.tc_email}}</td>
+							</tr>
+							<tr>
+								<th>籍贯:</th><td colspan="6">{{onePerson.tc_hometown}}</td>
+							</tr>
+							<tr>
+								<td colspan="7">
+									<div class="introduce">
+										<p>{{onePerson.tc_introduce}}</p>
+									</div>
+								</td>
+							</tr> -->
+						<!-- </tbody> -->
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+{{/block}}
+
+<script type="text/template" id="teacherTpl">
+	<tbody>
+		<tr>
+			<th>姓名:</th>
+			<td><%= onePerson.tc_name %></td>
+			<th>职位:</th>
+			<% if(onePerson.tc_type == 0) { %>
+			<td colspan="3">管理员</td>
+			<% }else{ %>
+			<td colspan="3">讲师</td>
+			<% } %>
+			<td rowspan="4" width="128">
+				<div class="avatar">
+					<img src="./images/default.png" alt="">
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<th>花名:</th><td><%= onePerson.tc_roster %></td>
+			<th>出生日期:</th><td colspan="3"><%= onePerson.tc_brithday %></td>
+		</tr>
+		<tr>
+			<th>性别:</th><td><% if(onePerson.tc_gender ==0) { %> 男 <% }else{ %> 女 <% } %></td>
+			<th>出生日期:</th><td colspan="3">1985-05-25</td>
+		</tr>
+		<tr>
+			<th>手机号码:</th><td colspan="2"><%= onePerson.tc_cellphone %></td>
+			<th>邮箱:</th><td colspan="2">zhaoyuchuan@itcast.cn</td>
+		</tr>
+		<tr>
+			<th>籍贯:</th><td colspan="6">河北省 保定市 曲阳县</td>
+		</tr>
+		<tr>
+			<td colspan="7">
+				<div class="introduce">
+					<p>豫章故郡，洪都新府。星分翼轸，地接衡庐。襟三江而带五湖，控蛮荆而引瓯越。物华天宝，龙光射牛斗之墟；人杰地灵，徐孺下陈蕃之榻。雄州雾列，俊采星驰。台隍枕夷夏之交，宾主尽东南之美。都督阎公之雅望，棨戟遥临；宇文新州之懿范，襜帷暂驻。十旬休假，胜友如云；千里逢迎，高朋满座。腾蛟起凤，孟学士之词宗；紫电青霜，王将军之武库。家君作宰，路出名区；童子何知，躬逢胜饯。</p>
+					<p>时维九月，序属三秋。潦水尽而寒潭清，烟光凝而暮山紫。俨骖騑于上路，访风景于崇阿。临帝子之长洲，得仙人之旧馆。层峦耸翠，上出重霄；飞阁流丹，下临无地。鹤汀凫渚，穷岛屿之萦回；桂殿兰宫，列冈峦之体势。</p>
+					<p>披绣闼，俯雕甍，山原旷其盈视，川泽纡其骇瞩。闾阎扑地，钟鸣鼎食之家；舸舰迷津，青雀黄龙之舳。云销雨霁，彩彻区明。落霞与孤鹜齐飞，秋水共长天一色。渔舟唱晚，响穷彭蠡之滨，雁阵惊寒，声断衡阳之浦。</p>
+				</div>
+			</td>
+		</tr>
+	</tbody>
+</script>
+
+
+{{#block ('script')}}
+	<script type="text/javascript" src="/assets/artTemplate/template-native.js"></script>
+	<script>
+		seajs.use('/script/teacher/check');
+	</script>
+
+{{/block}}	
 	

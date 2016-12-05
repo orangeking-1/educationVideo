@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+	<meta content="width=device-width,inital-scale=1.0,user-scalable=no">
 	<title>学IT - 后台管理系统</title>
 	<link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" href="/assets/font-awesome/css/font-awesome.css">
@@ -28,7 +29,9 @@
 	seajs.config({
 		base: '/assets',
 		alias: {
-			jquery: 'jquery/jquery.js'
+			jquery: 'jquery/jquery.js',
+			bootstrap: 'bootstrap/js/bootstrap.js',
+			template: 'artTemplate/template-native.js'
 		}
 	})
 
