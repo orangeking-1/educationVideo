@@ -9,7 +9,7 @@
 			<div class="avatar img-circle">
 				<img src="/avatar.jpg">
 			</div>
-			<h4>布头儿</h4>
+			<h4>段誉</h4>
 		</div>
 		<!-- 导航菜单 -->
 		<div class="navs">
@@ -24,12 +24,6 @@
 					<a href="/userList">
 						<i class="fa fa-bell"></i>
 						用户管理
-					</a>
-				</li>
-				<li>
-					<a href="/teacher">
-						<i class="fa fa-bell"></i>
-						讲师管理
 					</a>
 				</li>
 				<li>
